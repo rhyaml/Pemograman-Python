@@ -5,6 +5,7 @@
     "colab": {
       "name": "Untitled0.ipynb",
       "provenance": [],
+      "collapsed_sections": [],
       "authorship_tag": "ABX9TyMgt08mQRYhZ1sbuFfG0AiG",
       "include_colab_link": true
     },
@@ -37,7 +38,7 @@
         "from google.colab import drive\n",
         "drive.mount('/content/drive')"
       ],
-      "execution_count": 113,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -60,7 +61,7 @@
       "source": [
         "cd /content/drive/MyDrive"
       ],
-      "execution_count": 114,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -83,7 +84,7 @@
       "source": [
         "ls"
       ],
-      "execution_count": 115,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -139,7 +140,7 @@
         "import numpy as np\n",
         "import os"
       ],
-      "execution_count": 116,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -159,7 +160,7 @@
         "data = []\n",
         "labels = []"
       ],
-      "execution_count": 117,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -190,7 +191,7 @@
         "\tlabel = imagePath.split(os.path.sep)[-2]\n",
         "\tlabels.append(label)"
       ],
-      "execution_count": 118,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -205,7 +206,7 @@
       "source": [
         "print(labels)"
       ],
-      "execution_count": 119,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -226,7 +227,7 @@
         "lb = LabelBinarizer()\n",
         "labels = lb.fit_transform(labels)"
       ],
-      "execution_count": 120,
+      "execution_count": null,
       "outputs": []
     },
     {
@@ -241,7 +242,7 @@
       "source": [
         "print(labels)"
       ],
-      "execution_count": 121,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -274,7 +275,7 @@
         "print(trainX.shape)\n",
         "print(testX.shape)"
       ],
-      "execution_count": 122,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -312,7 +313,7 @@
         "\n",
         "model1.summary()"
       ],
-      "execution_count": 123,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -359,7 +360,7 @@
         "opt = Adam(lr=1e-3, decay=1e-3 / 50)\n",
         "model1.compile(loss=\"categorical_crossentropy\", optimizer=opt, metrics=[\"accuracy\"])"
       ],
-      "execution_count": 124,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -382,7 +383,7 @@
       "source": [
         "H = model1.fit(trainX, trainY, validation_data=(testX, testY), epochs=25, batch_size=32)"
       ],
-      "execution_count": 125,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -445,12 +446,12 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "51nbdla-oEBC",
-        "outputId": "c9c25534-ed72-4776-e1e2-f7a81c262f9e",
         "colab": {
           "base_uri": "https://localhost:8080/",
           "height": 590
-        }
+        },
+        "id": "51nbdla-oEBC",
+        "outputId": "c9c25534-ed72-4776-e1e2-f7a81c262f9e"
       },
       "source": [
         "import matplotlib.pyplot as plt\n",
@@ -473,7 +474,7 @@
         "plt.legend(['train', 'test'], loc='upper left')\n",
         "plt.show()"
       ],
-      "execution_count": 126,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -513,11 +514,11 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "jUdL5Z4OoIBk",
-        "outputId": "5609a346-ac11-4f34-b0f6-28bb5d80cc26",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "jUdL5Z4OoIBk",
+        "outputId": "5609a346-ac11-4f34-b0f6-28bb5d80cc26"
       },
       "source": [
         "# evaluate the network\n",
@@ -526,7 +527,7 @@
         "print(classification_report(testY.argmax(axis=1),\n",
         "\tpredictions.argmax(axis=1), target_names=lb.classes_))"
       ],
-      "execution_count": 127,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -553,16 +554,16 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "-vxO_6vSpKoQ",
-        "outputId": "813a711f-52dd-4364-cdf6-136ad10b53f5",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "-vxO_6vSpKoQ",
+        "outputId": "813a711f-52dd-4364-cdf6-136ad10b53f5"
       },
       "source": [
         "model1.save('nnmodel_scene')"
       ],
-      "execution_count": 128,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -583,18 +584,18 @@
         "import matplotlib.pyplot as plt\n",
         "image1='Daun.jpg'"
       ],
-      "execution_count": 129,
+      "execution_count": null,
       "outputs": []
     },
     {
       "cell_type": "code",
       "metadata": {
-        "id": "xzQZ2ZMtqBnH",
-        "outputId": "feb8100b-3b66-49f8-af9f-a18042830401",
         "colab": {
           "base_uri": "https://localhost:8080/",
           "height": 269
-        }
+        },
+        "id": "xzQZ2ZMtqBnH",
+        "outputId": "feb8100b-3b66-49f8-af9f-a18042830401"
       },
       "source": [
         "img_array = cv2.imread(image1)\n",
@@ -602,7 +603,7 @@
         "plt.show()\n",
         "# print(type(img_array))"
       ],
-      "execution_count": 130,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "display_data",
@@ -622,18 +623,18 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "X6278RSXqE0D",
-        "outputId": "74b4440a-89b7-496e-e0f6-df90dfed14f5",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "X6278RSXqE0D",
+        "outputId": "74b4440a-89b7-496e-e0f6-df90dfed14f5"
       },
       "source": [
         "image_testing = Image.open('Daun.jpg')\n",
         "image_testing = np.array(image_testing.resize((64, 64))) / 255.0\n",
         "image_testing.shape"
       ],
-      "execution_count": 131,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "execute_result",
@@ -652,17 +653,17 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "4l7OYw6sqHka",
-        "outputId": "b2780d47-4624-4ebe-ac56-f533c19bd095",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "4l7OYw6sqHka",
+        "outputId": "b2780d47-4624-4ebe-ac56-f533c19bd095"
       },
       "source": [
         "image_testing = np.expand_dims(image_testing, axis=0)\n",
         "print(image_testing.shape)"
       ],
-      "execution_count": 132,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
@@ -676,18 +677,18 @@
     {
       "cell_type": "code",
       "metadata": {
-        "id": "V-eIPtzBqLS8",
-        "outputId": "ddaa80f5-3689-4264-dec1-e63858d54cd5",
         "colab": {
           "base_uri": "https://localhost:8080/"
-        }
+        },
+        "id": "V-eIPtzBqLS8",
+        "outputId": "ddaa80f5-3689-4264-dec1-e63858d54cd5"
       },
       "source": [
         "output = model1.predict(image_testing, 1)\n",
         "print(output)\n",
         "print(lb.classes_[output.argmax(axis=1)])"
       ],
-      "execution_count": 133,
+      "execution_count": null,
       "outputs": [
         {
           "output_type": "stream",
